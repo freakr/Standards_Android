@@ -21,7 +21,10 @@ public interface Standards_interface {
 		public Activity mActivity;
 		public Context context;
 		
-		
+		public void exception_catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
 		public boolean is_Wifi_active(){
 			WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
 			return wifiManager.isWifiEnabled();
