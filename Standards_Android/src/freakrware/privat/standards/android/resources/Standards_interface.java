@@ -15,6 +15,8 @@ import android.widget.ToggleButton;
 import android.widget.LinearLayout.LayoutParams;
 
 public interface Standards_interface {
+	
+	public Standards standard = new Standards();
     
 	public class Standards{
 		
@@ -24,6 +26,7 @@ public interface Standards_interface {
 		public void exception_catch(Exception e)
 		{
 			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 		public boolean is_Wifi_active(){
 			WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
