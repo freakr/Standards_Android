@@ -3,16 +3,17 @@ package freakrware.privat.standards.android.resources;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.net.wifi.WifiManager;
+import android.telephony.SmsManager;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.ToggleButton;
-import android.widget.LinearLayout.LayoutParams;
 
 public interface Standards_interface {
 	
@@ -22,6 +23,20 @@ public interface Standards_interface {
 		
 		public Activity mActivity;
 		public Context context;
+		
+		public void send_sms(String phoneNo, String sms)
+		{
+			
+			try {
+				SmsManager smsManager = SmsManager.getDefault();
+				smsManager.sendTextMessage(phoneNo, null, sms, null, null);
+				Toast.makeText(context, "SMS Sent!",Toast.LENGTH_LONG).show();
+			  } catch (Exception e) {
+				Toast.makeText(context, "SMS faild, please try again later!",Toast.LENGTH_LONG).show();
+				e.printStackTrace();
+			  }
+			
+		}
 		
 		public void exception_catch(Exception e)
 		{
